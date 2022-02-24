@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= include('JavaScript'); ?>
+  </head>
+  <body>
+    <h1>CSProz Ticket System <span id="Year"></span></h1>
+    <form id="myForm" onsubmit="handleFormSubmit(this)" autocomplete="off">
+        <label for="agent">Choose your Name:</label>
+          <select name="agents" id="agent">
+          </select><br><br>
+  <label for="ticket">Ticket Number:</label>
+  <input type="text" id="ticket" name="ticket"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+  </body>
+</html>
