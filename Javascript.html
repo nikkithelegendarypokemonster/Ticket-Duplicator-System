@@ -1,0 +1,29 @@
+<script>
+ function handleFormSubmit(Obj){
+    event.preventDefault();
+    //handle duplicates function 
+    google.script.run.withSuccessHandler(alerting).myFunction(Obj);
+    document.getElementById('myForm').reset()
+  }
+  function getYear(){
+    return new Date().getFullYear();
+  }
+  window.addEventListener('load',()=>{
+    //set Year 
+    document.getElementById('Year').innerHTML=getYear();
+    //add items in dropdown list
+      google.script.run.withSuccessHandler(appendAgents).fetchAgents();
+      function appendAgents(agents){
+        agents.forEach((agent,index)=>{
+          var option=document.createElement("option");
+          option.value = agent;
+          option.text = agent;
+          document.getElementById('agent').appendChild(option)
+        });
+      }
+  })
+  function alerting(response){
+    //send alert response as html output
+      alert(response)
+  }
+</script>
